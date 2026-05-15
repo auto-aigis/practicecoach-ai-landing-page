@@ -178,7 +178,7 @@ export default function PricingPage() {
                 </div>
 
                 <Button
-                  onClick={() => handleUpgrade(plan.tier)}
+                  onClick={() => plan.tier !== "free" && handleUpgrade(plan.tier as "coach" | "pro")}
                   disabled={plan.ctaDisabled || upgrading === plan.tier}
                   className={
                     plan.tier === "pro"
@@ -192,6 +192,7 @@ export default function PricingPage() {
                       ? "Your Current Plan"
                       : plan.cta}
                 </Button>
+
 
                 <ul className="space-y-3 text-gray-300 text-sm">
                   {plan.features.map((feature, idx) => (
