@@ -100,7 +100,7 @@ export default function AnalyzePage() {
         await audioContext.resume();
       }
 
-      const source = audioContext.createMediaStreamAudioSource(stream);
+       const source = (audioContext as any).createMediaStreamAudioSource(stream);
       const analyser = audioContext.createAnalyser();
       analyser.fftSize = 256;
       source.connect(analyser);
