@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Mic, Upload, Play, Stop } from "lucide-react";
+import { Mic, Upload, Play, Square } from "lucide-react";
 
 export default function AnalyzePage() {
   const router = useRouter();
@@ -298,15 +298,16 @@ export default function AnalyzePage() {
                 </div>
               )}
 
-              {isRecording && (
-                <Button
-                  onClick={stopRecording}
-                  className="w-full bg-red-600 hover:bg-red-700 text-white"
-                >
-                  <Stop className="mr-2 h-4 w-4" />
-                  Stop Recording
-                </Button>
-              )}
+               {isRecording && (
+                 <Button
+                   onClick={stopRecording}
+                   className="w-full bg-red-600 hover:bg-red-700 text-white"
+                 >
+                   <Square className="mr-2 h-4 w-4" />
+                   Stop Recording
+                 </Button>
+               )}
+
 
               {hasAudio && !isRecording && (
                 <Button
