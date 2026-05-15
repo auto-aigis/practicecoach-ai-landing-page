@@ -106,21 +106,22 @@ export default function AnalyzePage() {
       source.connect(analyser);
       analyserRef.current = analyser;
 
-      const mediaRecorder = new MediaRecorder(stream);
-      audioChunksRef.current = [];
+       const mediaRecorder = new MediaRecorder(stream);
+       audioChunksRef.current = [];
 
-      mediaRecorder.ondataavailable = (e) => {
-        audioChunksRef.current.push(e.data);
-      };
+       mediaRecorder.ondataavailable = (e) => {
+         audioChunksRef.current.push(e.data);
+       };
 
-      mediaRecorder.onstart = () => {
-        setIsRecording(true);
-        setRecordingTime(0);
-      };
+       (mediaRecorder as any).onstart = () => {
+         setIsRecording(true);
+         setRecordingTime(0);
+       };
 
-      mediaRecorder.onend = () => {
-        setIsRecording(false);
-      };
+       (mediaRecorder as any).onend = () => {
+         setIsRecording(false);
+       };
+
 
       mediaRecorderRef.current = mediaRecorder;
       mediaRecorder.start();
