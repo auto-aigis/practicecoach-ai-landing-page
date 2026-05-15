@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'default' | 'outline';
+  variant?: 'default' | 'outline' | 'ghost';
 }
 
 export function Button({ variant = 'default', className = '', ...props }: ButtonProps) {
@@ -9,7 +9,9 @@ export function Button({ variant = 'default', className = '', ...props }: Button
   const variantClasses = {
     default: 'bg-blue-600 hover:bg-blue-700 text-white',
     outline: 'border border-gray-300 hover:bg-gray-50',
+    ghost: 'hover:bg-gray-100 text-gray-700',
   };
+
 
   return (
     <button
